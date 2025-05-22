@@ -7,11 +7,23 @@ using Visiotech.SystemData.MVVM.Views;
 
 namespace Visiotech.SystemData.MVVM.Settings
 {
+    /// <summary>
+    /// Custom AppBase to allow include custom data for the MainWindow. 
+    /// </summary>
     public class AppBase : Application
     {
+        //
+        // Summary:
+        //     Generates the event System.Windows.Application.Startup.
+        //
+        // Parameters:
+        //   e:
+        //     Objet System.Windows.StartupEventArgs that contains the event data.
         protected sealed override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
+
+            ShutdownMode = ShutdownMode.OnMainWindowClose;
 
             MainWindow = CreateMainWindow();
             if (MainWindow == null)
@@ -24,6 +36,10 @@ namespace Visiotech.SystemData.MVVM.Settings
             }
         }
 
+        /// <summary>
+        /// Create the mainWindow and attach the DisplayView and ViewModel
+        /// </summary>
+        /// <returns></returns>
         private Window CreateMainWindow()
         {
             MainView mainView = new MainView();

@@ -13,7 +13,7 @@ namespace Visiotech.SystemData.MVVM.Views
             InitializeComponent();
         }
 
-        public MainView(IMainViewModel mainViewModel)
+        public MainView(IMainViewModel mainViewModel) : this()
         {
             this.DataContext = mainViewModel;
         }

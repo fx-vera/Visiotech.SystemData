@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Visiotech.SystemData.MVVM.Models
+﻿namespace Visiotech.SystemData.MVVM.Models
 {
+    /// <summary>
+    /// Model with the data displayed in the view.
+    /// </summary>
     public class DisplayModel
     {
     }

@@ -20,6 +20,6 @@
         /// <summary>
         /// Attached view to display the info.
         /// </summary>
-        System.Windows.Controls.UserControl DisplayerView { get; }
+        System.Windows.Controls.UserControl DisplayView { get; }
     }
 }
