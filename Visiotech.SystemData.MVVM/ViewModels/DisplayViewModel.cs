@@ -1,10 +1,13 @@
-﻿namespace Visiotech.SystemData.MVVM.ViewModels
+﻿using Visiotech.SystemData.MVVM.Models;
+
+namespace Visiotech.SystemData.MVVM.ViewModels
 {
     /// <summary>
     /// ViewModel with the requirements data.
     /// </summary>
     public class DisplayViewModel : BaseViewModel
     {
+        public DisplayViewModel() { }
         /// <summary>
         /// Name of the ViewModel
         /// </summary>
@@ -13,6 +16,9 @@
         /// Unique Id
         /// </summary>
         public override string Id { get; } = "{AFEB1E98-DBAF-48DE-9884-EA679083778F}"; // Generated with Tool GUID from VS2022
-
+        /// <summary>
+        /// The Model
+        /// </summary>
+        public DisplayModel DisplayModel { get; set; }
     }
 }

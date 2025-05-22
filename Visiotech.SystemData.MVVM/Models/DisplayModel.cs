@@ -5,5 +5,8 @@
     /// </summary>
     public class DisplayModel
     {
+        public DisplayModel() { }
+        public DataStoredModel DataStoredModel { get; set; }
+        public int Interval { get; set; }
     }
 }

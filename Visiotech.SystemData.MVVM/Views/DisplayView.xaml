@@ -8,6 +8,24 @@
              d:DesignHeight="450" d:DesignWidth="800"
              >
     <Grid>
-        <TextBlock Text="TEST!!!"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="100"></RowDefinition>
+            <RowDefinition Height="auto" MinHeight="100"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Margin="5" Grid.Row="0"></DataGrid>
+        <Grid Margin="5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <Label Content="Interval"></Label>
+                <!--Here the numeric up down (maybe host from winforms)-->
+            </StackPanel>
+            <DockPanel Grid.Column="1">
+                <Button Content="Start" Command="{Binding StartCommand}"></Button>
+                <Button Content="Pause" Command="{Binding PauseCommand}"></Button>
+            </DockPanel>
+        </Grid>
     </Grid>
 </UserControl>
