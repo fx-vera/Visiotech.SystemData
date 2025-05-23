@@ -1,9 +1,7 @@
-﻿<Application x:Class="Visiotech.SystemData.Launcher.App"
+﻿<mvvm:AppBase x:Class="Visiotech.SystemData.Launcher.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Visiotech.SystemData.Launcher"
-             StartupUri="MainWindow.xaml">
-    <Application.Resources>
-         
-    </Application.Resources>
-</Application>
+             xmlns:mvvm="clr-namespace:Visiotech.SystemData.MVVM.Settings;assembly=Visiotech.SystemData.MVVM"
+             >
+
+</mvvm:AppBase>
