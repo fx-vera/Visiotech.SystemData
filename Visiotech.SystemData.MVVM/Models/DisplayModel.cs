@@ -1,5 +1,4 @@
 ﻿using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 
 namespace Visiotech.SystemData.MVVM.Models
 {
@@ -20,19 +19,10 @@ namespace Visiotech.SystemData.MVVM.Models
             }
         }
 
-        private int interval = 1000; // miliseconds
-
-        public event NotifyCollectionChangedEventHandler CollectionChanged;
-        public void OnCollectionChanged(NotifyCollectionChangedAction action)
-        {
-            if (CollectionChanged != null)
-            {
-                CollectionChanged(this, new NotifyCollectionChangedEventArgs(action));
-            }
-        }
+        private int interval = 1000; // miliseconds, default 1000
 
         /// <summary>
-        /// Interval in miliseconds
+        /// Interval in miliseconds: 1000 by default
         /// </summary>
         public int Interval
 

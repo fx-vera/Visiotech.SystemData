@@ -16,12 +16,5 @@ namespace Visiotech.SystemData.MVVM.ViewModels
         /// Unique Id
         /// </summary>
         public abstract string Id { get; }
-        /// <summary>
-        /// Should be implemented to allow the communication between View and Viewmode (updates)
-        /// </summary>
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public abstract void SaveData();
     }
 }

@@ -15,7 +15,7 @@ namespace Visiotech.SystemData.MVVM.ViewModels
     /// <summary>
     /// ViewModel with the requirements data.
     /// </summary>
-    public class DisplayViewModel : BaseViewModel, IDisposable
+    public class DisplayViewModel : BaseViewModel, IDisplayViewModel, IDisposable
     {
         /// <summary>
         /// Will be used to read and write in the UI on the background
@@ -36,6 +36,7 @@ namespace Visiotech.SystemData.MVVM.ViewModels
             StartCommand.Execute(null);
         }
 
+        #region Properties
         /// <summary>
         /// Name of the ViewModel
         /// </summary>
@@ -48,15 +49,19 @@ namespace Visiotech.SystemData.MVVM.ViewModels
         /// The Model
         /// </summary>
         public DisplayModel DisplayModel { get; set; } = new DisplayModel();
+        #endregion Properties
 
+        #region Commands
         public ICommand StartCommand => new RelayCommand(PerformStartCommand);
 
         public ICommand PauseCommand => new RelayCommand(PerformPauseCommand);
         public ICommand DownIntervalCommand => new RelayCommand(PerformDownIntervalCommand);
-
         public ICommand UpIntervalCommand => new RelayCommand(PerformUpIntervalCommand);
+        #endregion Commands
 
-        public override void SaveData()
+        #region Public methods
+
+        public void SaveData()
         {
             systemDataService.SaveData(DisplayModel.DataStoredModels.ToList(), dataStoredPath);
         }
@@ -65,6 +70,9 @@ namespace Visiotech.SystemData.MVVM.ViewModels
         {
             backgroundWorker.Dispose();
         }
+        #endregion Public methods
+
+        #region private methods
 
         private void PerformStartCommand(object obj)
         {
@@ -110,6 +118,11 @@ namespace Visiotech.SystemData.MVVM.ViewModels
                 PerformanceCounter cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
                 int usage = (int)cpuCounter.NextValue();
 
+                // Use this Thread.Sleep for 2 purposes (avoiding freeze the UI):
+                //  1) Wait time until retrieve the data.
+                //  2) Used for the PerformanceCounter to get the CPU usage in that interval.
+                //Thread.Sleep(DisplayModel.Interval - 250); // 250ms is the factor of time give to do the operations. TODO
+
                 Thread.Sleep(DisplayModel.Interval);
 
                 // extract data and write in the datagrid
@@ -131,5 +144,6 @@ namespace Visiotech.SystemData.MVVM.ViewModels
             }
             return 1;
         }
+        #endregion private methods
     }
 }

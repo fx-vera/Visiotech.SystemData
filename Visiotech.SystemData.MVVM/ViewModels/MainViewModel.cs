@@ -9,11 +9,11 @@ namespace Visiotech.SystemData.MVVM.ViewModels
     public class MainViewModel : IMainViewModel
     {
         public MainViewModel() { }
-        public MainViewModel(IBaseViewModel baseViewModel, UserControl userControl)
+        public MainViewModel(IDisplayViewModel baseViewModel, UserControl userControl)
         {
-            this.DisplayerViewModel = baseViewModel;
+            this.DisplayViewModel = baseViewModel;
             this.DisplayView = userControl;
-            this.DisplayView.DataContext = this.DisplayerViewModel;
+            this.DisplayView.DataContext = this.DisplayViewModel;
         }
         /// <summary>
         /// Title of the app
@@ -26,7 +26,7 @@ namespace Visiotech.SystemData.MVVM.ViewModels
         /// <summary>
         /// ViewModel to manage the data displayed in the view
         /// </summary>
-        public IBaseViewModel DisplayerViewModel { get; }
+        public IDisplayViewModel DisplayViewModel { get; }
         /// <summary>
         /// View that binds the ViewModel and Model data
         /// </summary>

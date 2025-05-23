@@ -39,16 +39,16 @@ namespace Visiotech.SystemData.MVVM.Settings
 
         private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            OnExit();
+            OnClosing();
         }
 
-        private void OnExit()
+        private void OnClosing()
         {
-            // Here exit
+            // Here save the data before exit
 
             if (MainWindow.DataContext is IMainViewModel mainViewModel)
             {
-                mainViewModel.DisplayerViewModel.SaveData();
+                mainViewModel.DisplayViewModel.SaveData();
             }
 
         }
@@ -62,7 +62,7 @@ namespace Visiotech.SystemData.MVVM.Settings
 
             try
             {
-                IBaseViewModel displayViewModel = new DisplayViewModel();
+                IDisplayViewModel displayViewModel = new DisplayViewModel();
                 UserControl displayView = new DisplayView();
                 IMainViewModel mainViewModel = new MainViewModel(displayViewModel, displayView);
 

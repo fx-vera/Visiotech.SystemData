@@ -47,10 +47,13 @@ namespace Visiotech.SystemData.MVVM.Services
         /// <returns></returns>
         public string GetGPUSerialNumber() // "TODO-GetGPUSerialNumber";
         {
-            string result = string.Empty;
+            //string result = string.Empty;
             try
             {
-                result = Visiotech.HardwareInfo.HardwareInfo.GetGpuID();
+                //result = Visiotech.HardwareInfo.HardwareInfo.GetGpuID();
+
+                // For the moment is better deactivate this method because of the performance.
+                return string.Empty;
             }
             catch (Exception ex)
             {

@@ -16,7 +16,7 @@
         /// <summary>
         /// Attached view model with the display info
         /// </summary>
-        IBaseViewModel DisplayerViewModel { get; }
+        IDisplayViewModel DisplayViewModel { get; }
         /// <summary>
         /// Attached view to display the info.
         /// </summary>
