@@ -21,5 +21,7 @@ namespace Visiotech.SystemData.MVVM.ViewModels
         /// </summary>
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public abstract void SaveData();
     }
 }

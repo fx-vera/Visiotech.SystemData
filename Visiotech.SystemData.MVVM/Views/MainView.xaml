@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="{Binding Title}"
-        MinHeight="250" MinWidth="300" Height="450" Width="600"
+        MinHeight="250" MinWidth="300" Height="500" Width="750"
         Icon="/Visiotech.SystemData.MVVM;component/Resources/logo.png" Margin="15"
         >
     <Grid Margin="5">

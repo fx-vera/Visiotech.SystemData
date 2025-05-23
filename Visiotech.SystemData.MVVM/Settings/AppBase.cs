@@ -32,10 +32,26 @@ namespace Visiotech.SystemData.MVVM.Settings
             }
             else
             {
+                MainWindow.Closing += MainWindow_Closing;
                 MainWindow.Show();
             }
         }
 
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            OnExit();
+        }
+
+        private void OnExit()
+        {
+            // Here exit
+
+            if (MainWindow.DataContext is IMainViewModel mainViewModel)
+            {
+                mainViewModel.DisplayerViewModel.SaveData();
+            }
+
+        }
         /// <summary>
         /// Create the mainWindow and attach the DisplayView and ViewModel
         /// </summary>

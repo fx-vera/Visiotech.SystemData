@@ -9,5 +9,7 @@ namespace Visiotech.SystemData.MVVM.Interfaces
     {
         string Name { get; }
         string Id { get; }
+
+        void SaveData();
     }
 }
